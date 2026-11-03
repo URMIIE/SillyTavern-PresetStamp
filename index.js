@@ -184,7 +184,6 @@ function onChatChanged() {
 const VIA_TEXT = {
     cut: '잘라 다시 넣은 답 — 원래 답의 기록',
     quiet: '/gen → /sendas',
-    legacy: '옛 Preset Tracker 기록',
 };
 
 function offText(v) {
