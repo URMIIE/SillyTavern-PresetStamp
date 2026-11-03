@@ -12,7 +12,7 @@ import { power_user } from '../../../power-user.js';
 const MODULE = 'presetStamp';
 const KEY = 'preset_stamp';
 // 알림에 보일 것 (설정에서 켜고 끔)
-const SHOW_DEFAULTS = Object.freeze({ model: true, api: false, profile: true, preset: true, templates: true, time: false, note: true });
+const SHOW_DEFAULTS = Object.freeze({ model: true, api: false, profile: true, preset: true, templates: true, time: false });
 const FALLBACK_DELAY_MS = 1500;        // 생성이 끝난 뒤 「답 받음」 신호가 없었는지 확인할 때까지
 const QUIET_TTL_MS = 10 * 60 * 1000;   // /gen 이 오래 걸려도 뒤따르는 /sendas 가 받을 수 있게
 const REMOVED_TTL_MS = 60 * 1000;      // /cut 바로 뒤 /sendas 만 짝지음
@@ -240,11 +240,6 @@ function onChatChanged() {
 
 // ---------------- 보여 주기 ----------------
 
-const VIA_TEXT = {
-    cut: '빠른 답장(QR)으로 다시 넣은 답 — 원래 답의 정보',
-    quiet: '빠른 답장(QR)으로 만든 답',
-};
-
 function offText(v) {
     return v === false ? '꺼짐' : (v || '(알 수 없음)');
 }
@@ -272,7 +267,6 @@ function showStamp(messageId) {
         html += line('시스템 프롬프트', offText(stamp.sysprompt));
     }
     if (show.time && stamp?.at) html += line('생성 시작', new Date(stamp.at).toLocaleString('ko-KR'));
-    if (show.note && VIA_TEXT[stamp?.via]) html += `<small>${escapeHtml(VIA_TEXT[stamp.via])}</small>`;
     if (!html) html = '<small>설정에서 보일 정보를 켜 주세요.</small>';
 
     toastr.info(html, title, {
