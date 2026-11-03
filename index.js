@@ -241,8 +241,8 @@ function onChatChanged() {
 // ---------------- 보여 주기 ----------------
 
 const VIA_TEXT = {
-    cut: '잘라 다시 넣은 답 — 원래 답의 기록',
-    quiet: '/gen → /sendas',
+    cut: '빠른 답장(QR)으로 다시 넣은 답 — 원래 답의 정보',
+    quiet: '빠른 답장(QR)으로 만든 답',
 };
 
 function offText(v) {
