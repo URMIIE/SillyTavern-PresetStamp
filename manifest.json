@@ -1,0 +1,10 @@
+{
+    "display_name": "Preset Stamp",
+    "loading_order": 60,
+    "js": "index.js",
+    "author": "URMIIE",
+    "version": "1.0.0",
+    "homePage": "https://github.com/URMIIE/SillyTavern-PresetStamp",
+    "minimum_client_version": "1.19.0",
+    "auto_update": true
+}
